@@ -1,6 +1,13 @@
 .App {
-  text-align: center;
+  display: flex;
   font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
+}
+
+.content {
+  margin-left: 220px;
+  padding: 2rem;
+  width: calc(100% - 220px);
+  min-height: 100vh; /* 追加：コンテンツの高さを確保 */
 }

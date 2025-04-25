@@ -1,0 +1,17 @@
+.about {
+  max-width: 600px;
+  margin: 2rem auto;
+  padding: 1rem;
+  text-align: left;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeIn 0.5s ease-in forwards;
+  min-height: 300px; /* 追加 */
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
