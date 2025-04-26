@@ -1,9 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import './MenuBar.css';
 
-function MenuBar({ setActiveSection }) {
-  const [highlightedSection, setHighlightedSection] = useState('about');
-
+function MenuBar({ setActiveSection, activeSection }) {
   const scrollToSection = (sectionId) => {
     console.log('Scrolling to:', sectionId);
     setActiveSection(sectionId);
@@ -11,61 +9,55 @@ function MenuBar({ setActiveSection }) {
       const element = document.getElementById(sectionId);
       if (element) {
         console.log('Found element:', element);
-        element.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        setHighlightedSection(sectionId);
+        element.scrollIntoView({ behavior: 'smooth' });
       } else {
         console.log('Element not found for ID:', sectionId);
       }
-    }, 300);
+    }, 400);
   };
-
-  useEffect(() => {
-    const handleScroll = () => {
-      const sections = ['about', 'skills', 'photograph', 'djorganizechd'];
-      const scrollPosition = window.scrollY + 100;
-
-      for (const section of sections) {
-        const element = document.getElementById(section);
-        if (
-          element &&
-          scrollPosition >= element.offsetTop &&
-          scrollPosition < element.offsetTop + element.offsetHeight
-        ) {
-          setHighlightedSection(section);
-        }
-      }
-    };
-
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
 
   return (
     <nav className="menu-bar">
       <ul>
-        <li
-          className={highlightedSection === 'about' ? 'active' : ''}
-          onClick={() => scrollToSection('about')}
-        >
-          About
+        <li>
+          <button
+            className={activeSection === 'about' ? 'active' : ''}
+            onClick={() => scrollToSection('about')}
+          >
+            About
+          </button>
         </li>
-        <li
-          className={highlightedSection === 'djorganizechd' ? 'active' : ''}
-          onClick={() => scrollToSection('djorganizechd')}
-        >
-          DJ & Organize(CHD)
+        <li>
+          <button
+            className={activeSection === 'biography' ? 'active' : ''}
+            onClick={() => scrollToSection('biography')}
+          >
+            Biography
+          </button>
         </li>
-        <li
-          className={highlightedSection === 'photograph' ? 'active' : ''}
-          onClick={() => scrollToSection('photograph')}
-        >
-          Photograph
+        <li>
+          <button
+            className={activeSection === 'djorganizechd' ? 'active' : ''}
+            onClick={() => scrollToSection('djorganizechd')}
+          >
+            DJ & Organize(CHD)
+          </button>
         </li>
-        <li
-          className={highlightedSection === 'skills' ? 'active' : ''}
-          onClick={() => scrollToSection('skills')}
-        >
-          IT Skills
+        <li>
+          <button
+            className={activeSection === 'photograph' ? 'active' : ''}
+            onClick={() => scrollToSection('photograph')}
+          >
+            Photograph
+          </button>
+        </li>
+        <li>
+          <button
+            className={activeSection === 'skills' ? 'active' : ''}
+            onClick={() => scrollToSection('skills')}
+          >
+            IT Skills
+          </button>
         </li>
       </ul>
     </nav>

@@ -1,42 +1,48 @@
 .menu-bar {
+    width: 200px;
     position: fixed;
     top: 0;
     left: 0;
-    width: 200px;
-    height: 100vh;
-    background-color: transparent;
-    color: black;
-    padding: 1rem;
+    height: 100%;
+    background: #fff;
     z-index: 1000;
   }
   
   .menu-bar ul {
     list-style: none;
-    padding: 0;
+    padding: 1rem;
     margin: 0;
   }
   
   .menu-bar li {
-    padding: 1rem;
+    margin: 1rem 0;
+  }
+  
+  .menu-bar button {
+    background: none;
+    border: none;
+    font-size: 1.2rem;
+    font-weight: normal; /* 非アクティブは通常フォント */
+    color: #000; /* グレースケール：黒 */
     cursor: pointer;
-    transition: all 0.3s ease;
-    position: relative;
+    padding: 0.5rem 0;
+    width: 100%;
+    text-align: left;
+    border-bottom: none; /* 非アクティブはアンダーラインなし */
+    transition: color 0.3s, border-bottom 0.3s, font-weight 0.3s;
   }
   
-  .menu-bar li:hover {
-    color: #000000;
+  .menu-bar button:hover {
+    border-bottom: 2px solid #000; /* ホバー時にアンダーライン */
+    font-weight: bold; /* ホバー時に太字 */
   }
   
-  .menu-bar li.active {
+  .menu-bar button.active {
+    border-bottom: 2px solid #000; /* アクティブ時にアンダーライン */
+    font-weight: bold; /* アクティブ時に太字 */
+  }
+  
+  .menu-bar button.active:hover {
+    border-bottom: 2px solid #000; /* アクティブ＋ホバーでも維持 */
     font-weight: bold;
-  }
-  
-  .menu-bar li.active::after {
-    content: '';
-    position: absolute;
-    bottom: 0.5rem;
-    left: 1rem;
-    width: calc(100% - 2rem);
-    height: 2px;
-    background-color: #000000;
   }

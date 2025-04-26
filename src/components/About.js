@@ -8,9 +8,9 @@ function About({ className }) {
 
   return (
     <section id="about" className={`about ${className || ''}`}>
-      <h3>About Me</h3>
+      <h3>About this Page</h3>
       <p>
-        はじめまして！山田太郎です。Reactを使ったWeb開発を学びながら、シンプルで使いやすいサイトを作るのが好きです。
+        このページではsuzushiroの個人活動や主にインフラエンジニアとしての経歴をまとめています。
       </p>
     </section>
   );
