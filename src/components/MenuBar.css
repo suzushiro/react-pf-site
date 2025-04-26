@@ -4,11 +4,10 @@
     left: 0;
     width: 200px;
     height: 100vh;
-    background-color: #282c34;
-    color: white;
+    background-color: transparent;
+    color: black;
     padding: 1rem;
-    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
-    z-index: 1000; /* 追加 */
+    z-index: 1000;
   }
   
   .menu-bar ul {
@@ -20,14 +19,24 @@
   .menu-bar li {
     padding: 1rem;
     cursor: pointer;
-    transition: background-color 0.3s;
+    transition: all 0.3s ease;
+    position: relative;
   }
   
   .menu-bar li:hover {
-    background-color: #3a3f4a;
+    color: #000000;
   }
   
   .menu-bar li.active {
-    background-color: #3a3f4a;
     font-weight: bold;
+  }
+  
+  .menu-bar li.active::after {
+    content: '';
+    position: absolute;
+    bottom: 0.5rem;
+    left: 1rem;
+    width: calc(100% - 2rem);
+    height: 2px;
+    background-color: #000000;
   }

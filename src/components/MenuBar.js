@@ -5,21 +5,23 @@ function MenuBar({ setActiveSection }) {
   const [highlightedSection, setHighlightedSection] = useState('about');
 
   const scrollToSection = (sectionId) => {
-    console.log('Scrolling to:', sectionId); // デバッグ用
-    setActiveSection(sectionId); // 表示するセクションを更新
-    const element = document.getElementById(sectionId);
-    if (element) {
-      console.log('Found element:', element); // デバッグ用
-      element.scrollIntoView({ behavior: 'smooth' });
-      setHighlightedSection(sectionId); // ハイライトを更新
-    } else {
-      console.log('Element not found for ID:', sectionId); // デバッグ用
-    }
+    console.log('Scrolling to:', sectionId);
+    setActiveSection(sectionId);
+    setTimeout(() => {
+      const element = document.getElementById(sectionId);
+      if (element) {
+        console.log('Found element:', element);
+        element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        setHighlightedSection(sectionId);
+      } else {
+        console.log('Element not found for ID:', sectionId);
+      }
+    }, 300);
   };
 
   useEffect(() => {
     const handleScroll = () => {
-      const sections = ['about', 'skills'];
+      const sections = ['about', 'skills', 'photograph', 'djorganizechd'];
       const scrollPosition = window.scrollY + 100;
 
       for (const section of sections) {
@@ -48,10 +50,22 @@ function MenuBar({ setActiveSection }) {
           About
         </li>
         <li
+          className={highlightedSection === 'djorganizechd' ? 'active' : ''}
+          onClick={() => scrollToSection('djorganizechd')}
+        >
+          DJ & Organize(CHD)
+        </li>
+        <li
+          className={highlightedSection === 'photograph' ? 'active' : ''}
+          onClick={() => scrollToSection('photograph')}
+        >
+          Photograph
+        </li>
+        <li
           className={highlightedSection === 'skills' ? 'active' : ''}
           onClick={() => scrollToSection('skills')}
         >
-          Skills
+          IT Skills
         </li>
       </ul>
     </nav>

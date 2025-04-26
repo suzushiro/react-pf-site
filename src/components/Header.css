@@ -1,20 +1,20 @@
 header {
-  padding: 1rem; /* サイズを小さく */
-  text-align: right; /* 右寄せ */
-  color: black; /* 文字色を黒 */
-  background-color: transparent; /* 背景色を透明 */
-  position: sticky; /* 右上に固定（スクロールしても見える） */
+  padding: 1rem;
+  text-align: right;
+  color: black;
+  background-color: transparent;
+  position: sticky;
   top: 0;
-  z-index: 1000; /* メニューバーと重ならないように */
+  z-index: 900;
 }
 
 header h1 {
-  font-size: 1.5rem; /* タイトルを小さく */
+  font-size: 1.5rem;
   margin: 0;
 }
 
 header h2 {
-  font-size: 1rem; /* サブタイトルも小さく */
+  font-size: 1rem;
   margin: 0.25rem 0 0;
   font-weight: normal;
 }

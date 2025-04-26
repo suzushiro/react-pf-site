@@ -9,5 +9,5 @@
   margin-left: 220px;
   padding: 2rem;
   width: calc(100% - 220px);
-  min-height: 100vh; /* 追加：コンテンツの高さを確保 */
+  min-height: 100vh;
 }
