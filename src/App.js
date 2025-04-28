@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import './App.css';
 import MenuBar from './components/MenuBar';
 import Header from './components/Header';
@@ -10,16 +10,6 @@ import DJOrganizeCHD from './components/DJOrganizeCHD';
 
 function App() {
   const [activeSection, setActiveSection] = useState('about');
-  const [animate, setAnimate] = useState(false);
-
-  useEffect(() => {
-    console.log('Active section changed:', activeSection);
-    setAnimate(false);
-    setTimeout(() => {
-      console.log('Triggering animation');
-      setAnimate(true);
-    }, 100);
-  }, [activeSection]);
 
   return (
     <div className="App">
@@ -29,21 +19,11 @@ function App() {
       />
       <main className="content">
         <Header />
-        {activeSection === 'about' && (
-          <About className={animate ? 'animate' : ''} />
-        )}
-        {activeSection === 'biography' && (
-          <Biography className={animate ? 'animate' : ''} />
-        )}
-        {activeSection === 'skills' && (
-          <Skills className={animate ? 'animate' : ''} />
-        )}
-        {activeSection === 'photograph' && (
-          <Photograph className={animate ? 'animate' : ''} />
-        )}
-        {activeSection === 'djorganizechd' && (
-          <DJOrganizeCHD className={animate ? 'animate' : ''} />
-        )}
+        {activeSection === 'about' && <About />}
+        {activeSection === 'biography' && <Biography />}
+        {activeSection === 'skills' && <Skills />}
+        {activeSection === 'photograph' && <Photograph />}
+        {activeSection === 'djorganizechd' && <DJOrganizeCHD />}
       </main>
     </div>
   );

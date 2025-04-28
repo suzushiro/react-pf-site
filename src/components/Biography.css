@@ -1,24 +1,101 @@
-.about {
+.biography {
   max-width: 600px;
-  margin: 2rem auto;
+  margin: 0 auto;
   padding: 1rem;
-  text-align: left;
-  min-height: 300px;
-}
-
-.about.animate {
   opacity: 0;
-  transform: translateY(20px);
-  animation: fadeIn 0.75s ease-in forwards;
+  transition: opacity 0.75s ease-in;
 }
 
-@keyframes fadeIn {
+.biography.animate {
+  opacity: 1;
+}
+
+.biography h3 {
+  color: #000;
+  text-align: center;
+}
+
+.biography p {
+  color: #000;
+  font-size: 1rem;
+}
+
+.timeline {
+  position: relative;
+  margin: 2rem 0;
+  padding: 0;
+}
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 20.9%; /* 微妙に右にずらす（20% → 22%） */
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: #000;
+  animation: drawLine 1s ease-in forwards;
+}
+
+@keyframes drawLine {
   from {
-    opacity: 0;
-    transform: translateY(20px);
+    height: 0;
   }
   to {
-    opacity: 1;
-    transform: translateY(0);
+    height: 100%;
+  }
+}
+
+.timeline-item {
+  position: relative;
+  display: flex;
+  margin-bottom: 2rem;
+  align-items: flex-start;
+}
+
+.timeline-year {
+  width: 20%;
+  font-weight: bold;
+  color: #000;
+  text-align: right;
+  padding-right: 1rem;
+  position: relative;
+}
+
+.timeline-year::after {
+  content: '';
+  position: absolute;
+  right: -5px; /* マーカーの位置は変更なし */
+  top: 50%;
+  transform: translateY(-50%);
+  width: 10px;
+  height: 10px;
+  background: #000;
+  border-radius: 50%;
+}
+
+.timeline-content {
+  width: 80%;
+  padding-left: 2rem;
+  color: #000;
+  font-size: 1rem;
+}
+
+@media (max-width: 768px) {
+  .timeline::before {
+    left: 12%; /* モバイルでも微妙に右に（10% → 12%） */
+    background: #000;
+    animation: drawLine 1s ease-in forwards;
+  }
+
+  .timeline-year {
+    width: 30%;
+    font-size: 0.9rem;
+  }
+
+  .timeline-content {
+    width: 70%;
+    padding-left: 1.5rem;
+    font-size: 0.9rem;
   }
 }

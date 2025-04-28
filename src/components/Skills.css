@@ -1,36 +1,73 @@
 .skills {
   max-width: 600px;
-  margin: 2rem auto;
+  margin: 0 auto;
   padding: 1rem;
-  text-align: left;
-  min-height: 300px;
+  opacity: 0 !important;
+  transition: opacity 0.75s ease-in !important;
 }
 
 .skills.animate {
-  opacity: 0;
-  transform: translateY(20px);
-  animation: fadeIn 0.75s ease-in forwards;
+  opacity: 1 !important;
 }
 
-.skills ul {
-  list-style: none;
-  padding: 0;
+.skills h2,
+.skills h3 {
+  color: #000;
+  text-align: center;
 }
 
-.skills li {
-  background-color: #f0f0f0;
+.tech-stack {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  margin: 2rem 0;
+  justify-items: center;
+}
+
+.tech-item {
+  text-align: center;
+}
+
+.tech-icon {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+  color: #000;
+}
+
+.tech-item p {
   margin: 0.5rem 0;
-  padding: 0.5rem;
-  border-radius: 5px;
+  color: #000;
+  font-size: 1rem;
 }
 
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+.tech-stars {
+  display: flex;
+  justify-content: center;
+}
+
+.projects {
+  margin-top: 2rem;
+}
+
+.projects table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #f0f0f0;
+}
+
+.projects th,
+.projects td {
+  padding: 0.75rem;
+  text-align: left;
+  color: #000;
+  border-bottom: 1px solid #ddd;
+}
+
+.projects th {
+  background: #e0e0e0;
+  font-weight: bold;
+}
+
+.projects td {
+  font-size: 0.9rem;
 }
